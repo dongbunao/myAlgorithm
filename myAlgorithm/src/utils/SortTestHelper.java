@@ -4,7 +4,7 @@ public class SortTestHelper {
 	
 	private SortTestHelper(){}
 	
-	//Éú³ÉÓĞn¸öÔªËØµÄËæ»úÊı×é£¬Ã¿¸öÔªËØµÄËæ»ú·¶Î§Îª[rangeL, rangeR]
+	//ç”Ÿæˆæœ‰nä¸ªå…ƒç´ çš„éšæœºæ•°ç»„ï¼Œæ¯ä¸ªå…ƒç´ çš„éšæœºèŒƒå›´ä¸º[rangeL, rangeR]
 	public static Integer[] generateRandomArray(int n, int rangeL, int rangeR){
 		
 		assert rangeL <= rangeR;
@@ -18,7 +18,7 @@ public class SortTestHelper {
 		return arr;
 	}
 	
-	//´òÓ¡Êı×éÖĞµÄËùÓĞÔªËØ
+	//æ‰“å°æ•°ç»„ä¸­çš„æ‰€æœ‰å…ƒç´  
 	public static void printArray(Object arr[]){
 		for(int i = 0; i < arr.length; i++){
 			System.out.print(arr[i]);
@@ -27,7 +27,7 @@ public class SortTestHelper {
 		System.out.println();
 	}
 	
-	//ÅĞ¶ÏÊı×éÖĞµÄÔªËØÊÇ·ñÓĞĞò
+	//åˆ¤æ–­æ•°ç»„ä¸­çš„å…ƒç´ æ˜¯å¦æœ‰åº
 	public static boolean isSorted(Comparable[] arr){
 		for(int i = 0; i < arr.length - 1; i++){
 			if(arr[i].compareTo(arr[i+1]) > 0)

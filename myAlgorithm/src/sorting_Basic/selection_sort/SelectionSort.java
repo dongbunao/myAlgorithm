@@ -1,4 +1,4 @@
-package sorting_Basic;
+package sorting_Basic.selection_sort;
 
 /**
  * 

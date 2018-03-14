@@ -1,5 +1,7 @@
 package sorting_Basic.selection_sort;
 
+import utils.SortTestHelper;
+
 /**
  * 
     * @ClassName: SelectionSort  
@@ -20,14 +22,15 @@ public class SelectionSort {
 	    * @return void
 	    * @throws
 	 */
-	private static void sort(int[] arr){
+	public static void sort(Comparable[] arr){
+		
 		int n = arr.length;
 		for(int i = 0;i < n;i++){
 			
 			int minIndex = i;
 			//
 			for(int j = i+1;j<n;j++){
-				if(arr[j]<arr[minIndex])
+				if(arr[j].compareTo(arr[minIndex]) < 0)
 					minIndex = j;
 			}
 			
@@ -46,20 +49,28 @@ public class SelectionSort {
 	    * @return void
 	    * @throws
 	 */
-	public static void swap(int[] arr, int i, int j){
-		int t = arr[i];
+	public static void swap(Object[] arr, int i, int j){
+		Object t = arr[i];
 		arr[i] = arr[j];
 		arr[j] = t;
 	}
 	
 	public static void main(String[] args){
-		int[] arr = {3,4,8,2,6,9,1,10,7,5};
-		SelectionSort.sort(arr);
-		for(int i=0;i<arr.length;i++){
-			System.out.print(arr[i]);
-			System.out.print(' ');
-		}
-		//System.out.println();
+		//手动写测试用例
+//		int[] arr = {3,4,8,2,6,9,1,10,7,5};
+//		SelectionSort.sort(arr);
+//		for(int i=0;i<arr.length;i++){
+//			System.out.print(arr[i]);
+//			System.out.print(' ');
+//		}
+		
+		//自动生成测试用例,并测试排序算法的性能
+		int N = 20000;
+		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
+		SortTestHelper.testSort("sorting_Basic.selection_sort.SelectionSort", arr);
+		
+		return;
+		
 	}
 
 }

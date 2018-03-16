@@ -1,4 +1,4 @@
-package sorting_Basic.selection_sort;
+package sorting_Basic;
 
 import utils.SortTestHelper;
 
@@ -67,7 +67,7 @@ public class SelectionSort {
 		//自动生成测试用例,并测试排序算法的性能
 		int N = 20000;
 		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
-		SortTestHelper.testSort("sorting_Basic.selection_sort.SelectionSort", arr);
+		SortTestHelper.testSort("sorting_Basic.SelectionSort", arr);
 		
 		return;
 		

@@ -30,7 +30,7 @@ public class SelectionSort {
 			int minIndex = i;
 			//
 			for(int j = i+1;j<n;j++){
-				if(arr[j].compareTo(arr[minIndex]) < 0)
+				if(arr[j].compareTo(arr[minIndex])<0)
 					minIndex = j;
 			}
 			

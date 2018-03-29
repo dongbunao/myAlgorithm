@@ -6,6 +6,9 @@ public class InsertionSort {
 	
 	private InsertionSort(){}
 	
+	/*
+	 * 对于这个数组的插入排序
+	 */
 	public static void sort(Comparable[] arr){
 		
 		int n = arr.length;
@@ -36,6 +39,23 @@ public class InsertionSort {
 		}
 	}
 	
+	/*
+	 * 对arr[l,r]的区间进行插入排序
+	 */
+	public static void sort(Comparable[] arr, int l, int r){
+		
+		for(int i = l + 1; i <= r; i++){
+			Comparable e = arr[i];
+			int j = i;
+			for( ;j > l && arr[j-1].compareTo(e) > 0; j--){
+				arr[j] = arr[j-1];
+			}
+			arr[j] = e;
+			
+		}
+	}
+	
+	
 	public static void swap(Object[] arr, int i, int j){
 		Object t = arr[i];
 		arr[i] = arr[j];
@@ -45,8 +65,8 @@ public class InsertionSort {
 	
 	public static void main(String[] args){
 		
-		int N = 20000;
-		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
+		int N = 10000;
+		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 10000);
 		SortTestHelper.testSort("sorting_Basic.InsertionSort", arr);
 		
 		return;

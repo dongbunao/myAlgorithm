@@ -15,7 +15,7 @@ public class QuickSort {
 	    * @param @param l
 	    * @param @param r
 	    * @param @return
-	    * @return p 使得 arr[l...p-1] < arr[p],arr[p=1...r] > arr[p]
+	    * @return int j, 使得 arr[l...j-1] < arr[j],arr[j+1...r] > arr[j]
 	    * @throws
 	 */
 	public static int partition(Comparable[] arr, int l, int r) {
@@ -31,8 +31,8 @@ public class QuickSort {
 				j++;
 				swap(arr, i, j);
 			}
-			swap(arr, l, j);
 		}
+		swap(arr, l, j);
 		
 		return j;
 	}
@@ -65,11 +65,22 @@ public class QuickSort {
 	
 
 	public static void main(String[] args){
-		int N = 10000;
 		
-		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 10000);
-		SortTestHelper.testSort("sorting_Advance.QuickSort", arr);
+		Integer[] arr = {3,4,8,2,6,9,1,1,7,5};
 		
+		System.out.println("原始数组：");
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+			System.out.print(' ');
+		}
+		System.out.println();
+		
+		QuickSort.sort(arr);
+		System.out.println("快速排序后的数组：");
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+			System.out.print(' ');
+		}
 		return;
 	}
 

@@ -33,9 +33,8 @@ public class InsertionSort {
 			int j = i;
 			for( ; j>0 && arr[j-1].compareTo(e)>0; j--){
 				arr[j] = arr[j-1];
-			arr[j] = e;
 			}
-			
+			arr[j] = e;
 		}
 	}
 	
@@ -65,27 +64,23 @@ public class InsertionSort {
 	
 	public static void main(String[] args){
 		
-		int N = 10000;
-		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 10000);
-		SortTestHelper.testSort("sorting_Basic.InsertionSort", arr);
+		Integer[] arr = {3,4,8,2,6,9,1,1,7,5};
+		
+		System.out.println("原始数组：");
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+			System.out.print(' ');
+		}
+		System.out.println();
+		
+		InsertionSort.sort(arr);
+		System.out.println("插入排序后的数组：");
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+			System.out.print(' ');
+		}
 		
 		return;
-		
-//		int N = 20;
-//		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 20);
-//		System.out.println("原始数组：");
-//		for(int i=0;i<arr.length;i++){
-//			System.out.print(arr[i]);
-//			System.out.print(' ');
-//		}
-//		System.out.println();
-//		
-//		InsertionSort.sort(arr);
-//		System.out.println("插入排序后的数组：");
-//		for(int i=0;i<arr.length;i++){
-//			System.out.print(arr[i]);
-//			System.out.print(' ');
-//		}
 	}
 	
 

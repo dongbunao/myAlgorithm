@@ -9,40 +9,30 @@ public class MergeSort {
 	
 	private MergeSort(){};
 	
-	/*
-	 * 把arr[l...mid] 和 arr[mid+1...r] 两部分进行归并
-	 */
-	private static void merge(Comparable[] arr, int l, int mid, int r) {
-		
-		// Arrays.copyOfRange(T[ ] original,int from,int to)将一个原始的数组original，从小标from开始复制，复制到小标to，生成一个新的数组。
-		// 注意这里包括下标from，不包括下标to。
-		// 这个方法在一些处理数组的编程题里很好用，效率和clone基本一致，都是native method，比利用循环复制数组效率要高得多。
-		Comparable[] aux = Arrays.copyOfRange(arr, l, r+1);
-		
-		//初始化，i指向左半部分的起始索引位置l，j指向右半部分的起始索引位置mid+1
-		int i = l, j = mid+1;
-		
-		for(int k=l; k<=r; k++){
-			if(i>mid){ //如果左半部分元素已经全部处理完毕
-				arr[k] = aux[j-l];
-				j++;
-			}
-			else if(j>r){
-				arr[k] = aux[i-l];
-				i++;
-			}
-			else if( aux[i-l].compareTo(aux[j-l]) < 0 ){
-				arr[k] = aux[i-l];
-				i++;
-			}
-			else{
-				arr[k] = aux[j-l];
-				j++;
-			}
-		}
-		
-	}
+	// 将arr[l...mid]和arr[mid+1...r]两部分进行归并
+    private static void merge(Comparable[] arr, int l, int mid, int r) {
 
+        Comparable[] aux = Arrays.copyOfRange(arr, l, r+1);
+
+        // 初始化，i指向左半部分的起始索引位置l；j指向右半部分起始索引位置mid+1
+        int i = l, j = mid+1;
+        for( int k = l ; k <= r; k ++ ){
+
+            if( i > mid ){  // 如果左半部分元素已经全部处理完毕
+                arr[k] = aux[j-l]; j ++;
+            }
+            else if( j > r ){   // 如果右半部分元素已经全部处理完毕
+                arr[k] = aux[i-l]; i ++;
+            }
+            else if( aux[i-l].compareTo(aux[j-l]) < 0 ){  // 左半部分所指元素 < 右半部分所指元素
+                arr[k] = aux[i-l]; i ++;
+            }
+            else{  // 左半部分所指元素 >= 右半部分所指元素
+                arr[k] = aux[j-l]; j ++;
+            }
+        }
+    }
+	
 	
 	/*
 	 * 递归调用归并排序，对arr[1...r]的范围进行排序
@@ -83,14 +73,21 @@ public class MergeSort {
 
 	public static void main(String[] args){
 		
-		int N = 10000;  //百万数据量，O(n^2)的算法不要轻易尝试百万数据量。
-		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 10000);
+		Integer[] arr = {3,4,8,2,6,9,1,1,7,5};
 		
-//		for(int i=0; i<arr.length; i++){
-//			System.out.print(arr[i]+" ");
-//		}
-//		System.out.println();
-		SortTestHelper.testSort("sorting_Advance.MergeSort", arr);
+		System.out.println("原始数组：");
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+			System.out.print(' ');
+		}
+		System.out.println();
+		
+		MergeSort.sort(arr);
+		System.out.println("归并排序后的数组：");
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+			System.out.print(' ');
+		}
 		
 		return;
 	}

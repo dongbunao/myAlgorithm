@@ -56,18 +56,15 @@ public class SelectionSort {
 	}
 	
 	public static void main(String[] args){
-		//手动写测试用例
-//		int[] arr = {3,4,8,2,6,9,1,10,7,5};
-//		SelectionSort.sort(arr);
-//		for(int i=0;i<arr.length;i++){
-//			System.out.print(arr[i]);
-//			System.out.print(' ');
-//		}
 		
-		//自动生成测试用例,并测试排序算法的性能
-		int N = 20000;
-		Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
-		SortTestHelper.testSort("sorting_Basic.SelectionSort", arr);
+		//手动写测试用例
+		Integer[] arr = {3,4,8,2,6,9,1,10,7,5};
+		SelectionSort.sort(arr);
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+			System.out.print(' ');
+		}
+		
 		
 		return;
 		

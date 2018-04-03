@@ -39,16 +39,16 @@ public class MergeSort {
 	 */
 	private static void sort(Comparable[] arr, int l, int r) {
 		
-//		// 循环终止条件
-//		if(l >= r){	//其实是 if(l = r) 左下标 大于 右下标的事情不可能发生
-//			return;
-//		}
-		
-		// 优化一：对于小规模数组使用插入排序
-		if(l - r <= 15){
-			InsertionSort.sort(arr, l, r);
+		// 循环终止条件
+		if(l >= r){	//其实是 if(l = r) 左下标 大于 右下标的事情不可能发生
 			return;
 		}
+		
+//		// 优化一：对于小规模数组使用插入排序
+//		if(l - r <= 15){
+//			InsertionSort.sort(arr, l, r);
+//			return;
+//		}
 		
 		
 		int mid = (l + r)/2;	//mid 为数组的中间元素位置
@@ -73,7 +73,7 @@ public class MergeSort {
 
 	public static void main(String[] args){
 		
-		Integer[] arr = {3,4,8,2,6,9,1,1,7,5};
+		Integer[] arr = {3,4,8,2,6,9,1,1,7,5,1,22,13,44,23,4,66,54,32,17,16,15,14};
 		
 		System.out.println("原始数组：");
 		for(int i=0;i<arr.length;i++){

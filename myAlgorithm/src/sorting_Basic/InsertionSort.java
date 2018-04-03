@@ -64,7 +64,7 @@ public class InsertionSort {
 	
 	public static void main(String[] args){
 		
-		Integer[] arr = {3,4,8,2,6,9,1,1,7,5};
+		Integer[] arr = {3,4,8,2,6,9,1,1,7,5,1,22,13,44,23,4,66,54,32,17,16,15,14,21,23,19,17,16};
 		
 		System.out.println("原始数组：");
 		for(int i=0;i<arr.length;i++){

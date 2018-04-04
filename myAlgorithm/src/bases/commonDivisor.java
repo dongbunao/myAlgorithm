@@ -1,17 +1,19 @@
-package priv.dong.algorithm.bases;
-
+package bases;
+/**
+ * 
+    * @ClassName: commonDivisor  
+    * @Description: TODO æ±‚ä¸¤ä¸ªæ•°çš„æœ€å¤§å…¬çº¦æ•° 
+    * @author dongxiao  
+    * @date 2018å¹´4æœˆ3æ—¥  
+    *
+ */
 public class commonDivisor {
 	
 	public static void main(String[] args) {
 		System.out.println(gcd(14,4));
 	}
 	
-	/**
-	 * Å·Àï¼¸µÂËã·¨ Çó×î´ó¹«Ô¼Êý
-	 * @param p
-	 * @param q
-	 * @return
-	 */
+	
 	public static int gcd(int p, int q){
 		if (q == 0) return p;
 		int r = p % q;

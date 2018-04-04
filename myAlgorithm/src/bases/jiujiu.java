@@ -1,4 +1,4 @@
-package priv.dong.algorithm.bases;
+package bases;
 /*
  * 
     * @ClassName: jiujiu  

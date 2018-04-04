@@ -19,6 +19,7 @@ public class Main {
 		Integer[] arr5 = Arrays.copyOf(arr1, N);
 		Integer[] arr6 = Arrays.copyOf(arr1, N);
 		Integer[] arr7 = Arrays.copyOf(arr1, N);
+		Integer[] arr8 = Arrays.copyOf(arr1, N);
 		
 		System.out.println("选择排序：");
 		SortTestHelper.testSort("sorting_Basic.SelectionSort", arr1);
@@ -34,6 +35,8 @@ public class Main {
 		SortTestHelper.testSort("sorting_Advance.QuickSort2Ways", arr6);
 		System.out.println("三路快速排序：");
 		SortTestHelper.testSort("sorting_Advance.QuickSort3Ways", arr7);
+		System.out.println("基础堆速排序：");
+		SortTestHelper.testSort("heap.HeapSort1", arr8);
 		
 		// 测试近乎有序的数组
 		System.out.println("----------对于近乎有序的数组测试----------");
@@ -45,6 +48,7 @@ public class Main {
 		arr5 = Arrays.copyOf(arr1, N);
 		arr6 = Arrays.copyOf(arr1, N);
 		arr7 = Arrays.copyOf(arr1, N);
+		arr8 = Arrays.copyOf(arr1, N);
 		
 		System.out.println("选择排序：");
 		SortTestHelper.testSort("sorting_Basic.SelectionSort", arr1);
@@ -60,6 +64,8 @@ public class Main {
 		SortTestHelper.testSort("sorting_Advance.QuickSort2Ways", arr6);
 		System.out.println("三路快速排序：");
 		SortTestHelper.testSort("sorting_Advance.QuickSort3Ways", arr7);
+		System.out.println("基础堆速排序：");
+		SortTestHelper.testSort("heap.HeapSort1", arr8);
 		
 		// 测试近乎有序的数组
 		System.out.println("----------对于含有大量重复元素的数组测试----------");
@@ -71,6 +77,7 @@ public class Main {
 		arr5 = Arrays.copyOf(arr1, N);
 		arr6 = Arrays.copyOf(arr1, N);
 		arr7 = Arrays.copyOf(arr1, N);
+		arr8 = Arrays.copyOf(arr1, N);
 		
 		System.out.println("选择排序：");
 		SortTestHelper.testSort("sorting_Basic.SelectionSort", arr1);
@@ -86,6 +93,8 @@ public class Main {
 		SortTestHelper.testSort("sorting_Advance.QuickSort2Ways", arr6);
 		System.out.println("三路快速排序：");
 		SortTestHelper.testSort("sorting_Advance.QuickSort3Ways", arr7);
+		System.out.println("基础堆速排序：");
+		SortTestHelper.testSort("heap.HeapSort1", arr8);
 		
 		return;
 

@@ -1,4 +1,4 @@
-package priv.dong.algorithm.bases;
+package bases;
 
 public class Person {
 	private String name;

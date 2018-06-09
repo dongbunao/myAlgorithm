@@ -40,6 +40,17 @@ public class BST<Key extends Comparable<Key>, Value> {
 		root = insert(root, key, value);
 	}
 	
+	// 判断二分搜索树中是否存在键key
+	public boolean contain(Key key){
+		return contain(root, key);
+	}
+	
+	// 在二分搜索书中查找键key对应的value，如果这个值不存在返回null
+	public Value search(Key key){
+		return search(root, key);
+	}
+	
+	//_________________________________________________________________________________________________
 	
 	private Node insert(Node node, Key key, Value value){
 		if (node == null){	//树空的情况下，直接插入
@@ -56,6 +67,38 @@ public class BST<Key extends Comparable<Key>, Value> {
 		}
 		
 		return node;
+	}
+	
+	//判断二分搜索树中是否存在键key
+	private boolean contain(Node node, Key key){
+		if(node == null){
+			return false;
+		}
+		
+		if(node.key.compareTo(key)==0){
+			return true;
+		}else if(key.compareTo(node.key)>0){
+			return contain(node.right, key);
+		}else{
+			return contain(node.left, key);
+		}
+		
+	}
+	
+	// 在二分搜索书中查找键key对应的value，如果这个值不存在返回null
+	private Value search(Node node, Key key){
+		if(node == null){
+			return null;
+		}
+		
+		if (key.compareTo(node.key)==0){
+			return node.value;
+		}else if(key.compareTo(node.key)>0){
+			return search(node.right, key);
+		}else{
+			return search(node.left, key);
+		}
+		
 	}
 	
 	

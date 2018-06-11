@@ -1,5 +1,8 @@
 package binary_Search;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BST<Key extends Comparable<Key>, Value> {
 	// 二分搜索树
 	// 由于Key需要进行比较，所以key extends Comparable<Key>
@@ -48,6 +51,39 @@ public class BST<Key extends Comparable<Key>, Value> {
 	// 在二分搜索书中查找键key对应的value，如果这个值不存在返回null
 	public Value search(Key key){
 		return search(root, key);
+	}
+	
+	// 二分搜索树的前序遍历
+	public void preOrder(){
+		preOrder(root);
+	}
+	
+	// 二分搜索树的中序遍历
+	public void inOrder(){
+		inOrder(root);
+	}
+	
+	// 二分搜索树的后序遍历
+	public void postOrder(){
+		postOrder(root);
+	}
+	
+	//二分搜索树的广度优先遍历（层序遍历）
+	public void levelOrder(){
+		//使用LinkedList作为队列使用
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		while(!q.isEmpty()){
+			Node node = q.remove();
+			System.out.println(node.key);
+			
+			if(node.left != null){
+				q.add(node.left);
+			}
+			if(node.right != null){
+				q.add(node.right);
+			}
+		}
 	}
 	
 	//_________________________________________________________________________________________________
@@ -100,6 +136,36 @@ public class BST<Key extends Comparable<Key>, Value> {
 		}
 		
 	}
+	
+	//二分搜索树的前序遍历
+	private void preOrder(Node node){
+		if(node != null){
+			System.out.println(node.key);
+			preOrder(node.left);
+			preOrder(node.right);
+		}
+	}
+	
+	//二分搜索树的中序遍历
+	private void inOrder(Node node){
+		if(node != null){
+			inOrder(node.left);
+			System.out.println(node.key);
+			inOrder(node.right);
+		}
+	}
+	
+	//二分搜索树的后序遍历
+	private void postOrder(Node node){
+		if(node != null){
+			postOrder(node.left);
+			postOrder(node.right);
+			System.out.println(node.key);
+		}
+	}
+	
+	
+	
 	
 	
 	public static void mian(String[] args){

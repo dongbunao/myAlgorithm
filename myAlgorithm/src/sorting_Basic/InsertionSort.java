@@ -14,20 +14,20 @@ public class InsertionSort {
 		int n = arr.length;
 		for(int i=0; i<n; i++){
 			
-			//写法1
-			//寻找元素arr[i]合适的插入位置
+//			//写法1
+//			//寻找元素arr[i]合适的插入位置
 //			for(int j=i; j>0; j--){
 //				if(arr[j].compareTo(arr[j-1])<0)
 //					swap(arr, j, j-1);
 //				else
 //					break;
 //			}
-			
-			//写法2
+//			
+//			//写法2
 //			for(int j=i;j>0 && arr[j].compareTo(arr[j-1]) < 0; j--){
 //				swap(arr, j, j-1);
 //			}
-			
+//			
 			//写法3
 			Comparable e = arr[i];
 			int j = i;

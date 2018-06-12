@@ -23,7 +23,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 	private int count;	//树中的节点个数
 	
 	//构造函数， 默认构造一个空的二叉搜索树
-	private BST(){
+	public BST(){
 		root = null;
 		count = 0;
 	}

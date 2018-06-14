@@ -86,6 +86,35 @@ public class BST<Key extends Comparable<Key>, Value> {
 		}
 	}
 	
+
+	// 返回以node为根的二分搜索树的最小值所在的节点
+	public Key minimum(){
+		assert count != 0;
+		Node minNode = mininum(root);
+		return minNode.key;
+	}
+	
+	// 返回以node为根的二分搜索树的最大值所在的节点
+	public Key maxnum(){
+		assert count != 0;
+		Node node = maxnum(root);
+		return node.key;
+	}
+	
+	// 删除以node为根的二分搜索树中最小节点
+	public void removeMin(){
+		if(root != null){
+			root = removeMin(root);
+		}
+	}
+	
+	// 删除以node为根的二分搜索树中最大节点
+	public void removeMax(){
+		if(root != null){
+			root = removeMax(root);
+		}
+	}
+	
 	//_________________________________________________________________________________________________
 	
 	private Node insert(Node node, Key key, Value value){
@@ -164,9 +193,49 @@ public class BST<Key extends Comparable<Key>, Value> {
 		}
 	}
 	
+	// 返回以node为根的二分搜索树的最小值所在的节点
+	private Node mininum(Node node){
+		if(node.left == null){
+			return node;
+		}
+		return mininum(node.left);
+	}
 	
 	
+	// 返回以node为根的二分搜索树的最大值所在的节点
+	private Node maxnum(Node node){
+		if(node.right == null){
+			return node;
+		}
+		return maxnum(node.right);
+	}
 	
+	// 删除以node为根的二分搜索树中最小节点，返回删除最小节点后的二分搜索树的根
+	private Node removeMin(Node node){
+		if(node.left == null){
+			Node rightNode = node.right; //右子树为空也同样适用
+			node.right =null;
+			count --;
+			return rightNode;
+		}
+		
+		node.left = removeMin(node.left);
+		
+		return node;//?
+	}
+	
+	// 删除以node为根的二分搜索树中最大小节点，返回删除最大节点后的二分搜索树的根
+	private Node removeMax(Node node){
+		if(node.right == null){
+			Node leftNode = node.left;
+			node.left = null;
+			count --;
+			return leftNode;
+		}
+		
+		node.right = removeMax(node.right);
+		return node;  //?
+	}
 	
 	public static void mian(String[] args){
 		

@@ -17,6 +17,13 @@ public class BST<Key extends Comparable<Key>, Value> {
 			this.value = value;
 			left = right = null;
 		}
+		
+		public Node(Node node) {
+			this.key = node.key;
+			this.value = node.value;
+			this.left = node.left;
+			this.right = node.right;
+		}
 	}
 	
 	private Node root;	//根节点
@@ -237,7 +244,56 @@ public class BST<Key extends Comparable<Key>, Value> {
 		return node;  //?
 	}
 	
+	// 删除二分搜索树中键值为key的节点， 返回删除节点之后的二分搜索树的根
+	// 先找到键值为key的节点
+	private Node remove(Node node, Key key){
+		if(node == null){ // 树为空或者是节点不存在的看情况？
+			return null;
+		}
+		
+		if(key.compareTo(node.key) < 0){
+			node.left = remove(node.left, key);
+			return node;
+		}else if(key.compareTo(node.key) > 0){
+			node.right = remove(node.right, key);
+			return node;
+		}else{	//待删除的节点就是当前节点
+			// 左子树为空的情况
+			if(node.left == null){
+				Node rightNode = node.right;
+				node.right = null;
+				count --;
+				return rightNode;
+			}
+			
+			// 右子树为空的情况
+			if(node.right == null){
+				Node leftNode = node.left;
+				node.right = null;
+				count --;
+				return leftNode;
+			}
+			
+			// 左右子树都不为空的情况
+			// 用 待删除节点的前驱或者后继节点顶替待删除节点位置   （Hubbard deletion）
+			Node successor = new Node(mininum(node.right));	//找到前驱节点，复制一份
+			count ++;
+			
+			successor.left = node.left;
+			successor.right = removeMin(node.right);
+			
+			node.left = node.right = null;
+			count --;
+			
+			return successor;
+			
+		}
+		
+		
+	}
+	
 	public static void mian(String[] args){
+		
 		
 	}
 
